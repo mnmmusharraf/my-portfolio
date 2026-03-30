@@ -6,18 +6,18 @@ const projects = [
     description:
       "Full-stack social commerce marketplace for Sri Lankan gemstone trading. JWT + Google OAuth2 auth, real-time in-platform messaging and notifications via WebSocket (STOMP/SockJS), follow system, listings, likes, favourites, and admin moderation panel. Integrated XGBoost ML pricing engine (103 engineered features) achieving 85.83% R² accuracy — outperforming commercial tools at 70–75%. Load tested to 500 concurrent users at 380ms avg response.",
     metrics: [
-      { label: "R² Accuracy", value: "85.83%" },
-      { label: "Median Error", value: "9.38%" },
-      { label: "Tests Passing", value: "340+" },
-      { label: "Concurrent Users", value: "500" },
+      { label: "R² Accuracy",      value: "85.83%" },
+      { label: "Median Error",     value: "9.38%"  },
+      { label: "Tests Passing",    value: "340+"   },
+      { label: "Concurrent Users", value: "500"    },
     ],
     tags: ["React.js", "Spring Boot", "FastAPI", "XGBoost", "PostgreSQL", "WebSocket", "JWT", "OAuth2", "Docker", "Kafka"],
     year: "2025",
     links: [
-      { label: "API", href: "https://github.com/mnmmusharraf/gemstore-api" },
-      { label: "Web", href: "https://github.com/mnmmusharraf/gemstore-web" },
-      { label: "Admin", href: "https://github.com/mnmmusharraf/gemstore-admin" },
-      { label: "ML", href: "https://github.com/mnmmusharraf/gemstore-ml-service" },
+      { label: "API",   href: "https://github.com/mnmmusharraf/gemstore-api"      },
+      { label: "Web",   href: "https://github.com/mnmmusharraf/gemstore-web"      },
+      { label: "Admin", href: "https://github.com/mnmmusharraf/gemstore-admin"    },
+      { label: "ML",    href: "https://github.com/mnmmusharraf/gemstore-ml-service" },
     ],
     featured: true,
   },
@@ -28,10 +28,10 @@ const projects = [
     description:
       "End-to-end ML pipeline classifying heart disease across 630,000 patient records using 14 clinical features. Engineered Age groups, Cholesterol categories, and interaction terms (Age×BP, Age×Chol, BP×Chol). XGBoost achieved 0.9551 ROC-AUC; weighted ensemble with HistGradientBoosting (45/55 split) reached 0.9552.",
     metrics: [
-      { label: "ROC-AUC", value: "0.9551" },
-      { label: "Dataset", value: "630K" },
-      { label: "Features", value: "14 clinical" },
-      { label: "Ensemble AUC", value: "0.9552" },
+      { label: "ROC-AUC",      value: "0.9551"     },
+      { label: "Dataset",      value: "630K"        },
+      { label: "Features",     value: "14 clinical" },
+      { label: "Ensemble AUC", value: "0.9552"      },
     ],
     tags: ["Python", "XGBoost", "Scikit-learn", "Pandas", "NumPy", "Feature Engineering"],
     year: "2026",
@@ -48,10 +48,10 @@ const projects = [
     tags: ["Java EE", "Servlets", "JSP", "MySQL", "JUnit", "GitHub Actions", "MVC", "DAO", "CI/CD"],
     year: "2024",
     links: [
-      { label: "Admin System", href: "https://github.com/mnmmusharraf/AdminStaffSystem" },
-      { label: "Admin UI", href: "https://github.com/mnmmusharraf/AdminSystemUi" },
-      { label: "Billing API", href: "https://github.com/mnmmusharraf/BillingSystemBackend" },
-      { label: "Billing UI", href: "https://github.com/mnmmusharraf/BillingSystemUi" },
+      { label: "Admin System", href: "https://github.com/mnmmusharraf/AdminStaffSystem"   },
+      { label: "Admin UI",     href: "https://github.com/mnmmusharraf/AdminSystemUi"      },
+      { label: "Billing API",  href: "https://github.com/mnmmusharraf/BillingSystemBackend" },
+      { label: "Billing UI",   href: "https://github.com/mnmmusharraf/BillingSystemUi"    },
     ],
     featured: false,
   },
@@ -71,20 +71,15 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" style={{
-      background: "#000",
-      padding: "100px 24px",
-      borderBottom: "0.5px solid rgba(255,255,255,0.08)",
-    }}>
+    <section id="projects" style={{ background: "#000", padding: "110px 24px", borderBottom: "0.5px solid rgba(255,255,255,0.08)" }}>
       <style>{`
         .proj-wrap { max-width: 1100px; margin: 0 auto; }
-        @media (min-width: 768px) { .proj-wrap { padding: 0 32px; } }
+        @media (min-width: 768px) { .proj-wrap { padding: 0 40px; } }
       `}</style>
 
       <div className="proj-wrap">
-        {/* Section label */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 64 }}>
-          <span style={{ fontSize: 10, letterSpacing: 5, textTransform: "uppercase", color: "rgba(255,255,255,0.25)", fontFamily: "'Georgia', serif", whiteSpace: "nowrap" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 72 }}>
+          <span style={{ fontSize: 11, letterSpacing: 5, textTransform: "uppercase", color: "#d4af6a", fontFamily: "'Georgia', serif", whiteSpace: "nowrap" }}>
             04 — Work
           </span>
           <div style={{ flex: 1, height: "0.5px", background: "rgba(255,255,255,0.08)" }} />
@@ -92,110 +87,88 @@ export default function Projects() {
 
         <h2 style={{
           fontFamily: "'Georgia', 'Times New Roman', serif",
-          fontSize: "clamp(30px, 4vw, 56px)",
-          fontWeight: 400, color: "#fff", letterSpacing: -1.5, margin: "0 0 48px",
+          fontSize: "clamp(32px, 4vw, 58px)",
+          fontWeight: 400, color: "#fff", letterSpacing: -1.5, margin: "0 0 52px",
         }}>
           Selected Projects
         </h2>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {projects.map((project, i) => (
-            <div
-              key={i}
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                backdropFilter: "blur(24px) saturate(160%)",
-                WebkitBackdropFilter: "blur(24px) saturate(160%)",
-                border: "0.5px solid rgba(255,255,255,0.1)",
-                borderRadius: 24, padding: "28px 24px",
-                transition: "background 0.25s, border-color 0.25s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.07)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
-              }}
+            <div key={i} style={{
+              background: "rgba(255,255,255,0.04)",
+              backdropFilter: "blur(24px) saturate(160%)",
+              WebkitBackdropFilter: "blur(24px) saturate(160%)",
+              border: project.featured ? "0.5px solid rgba(212,175,55,0.25)" : "0.5px solid rgba(255,255,255,0.09)",
+              borderRadius: 24, padding: "30px 28px",
+              transition: "background 0.25s, border-color 0.25s",
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.borderColor = "rgba(212,175,55,0.3)"; }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                e.currentTarget.style.borderColor = project.featured ? "rgba(212,175,55,0.25)" : "rgba(255,255,255,0.09)";
               }}
             >
               {/* Header */}
-              <div style={{ marginBottom: 12 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 5 }}>
-                  <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)", fontFamily: "'Georgia', serif", letterSpacing: 2 }}>
-                    {project.index}
-                  </span>
-                  <h3 style={{ fontFamily: "'Georgia', serif", fontSize: 19, fontWeight: 400, color: "#fff", margin: 0, letterSpacing: -0.5 }}>
-                    {project.title}
-                  </h3>
+              <div style={{ marginBottom: 14 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 11, flexWrap: "wrap", marginBottom: 6 }}>
+                  <span style={{ fontSize: 12, color: "rgba(255,255,255,0.22)", fontFamily: "'Georgia', serif", letterSpacing: 2 }}>{project.index}</span>
+                  <h3 style={{ fontFamily: "'Georgia', serif", fontSize: 21, fontWeight: 400, color: "#fff", margin: 0, letterSpacing: -0.5 }}>{project.title}</h3>
                   {project.featured && (
                     <span style={{
                       fontSize: 10, letterSpacing: 2, textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.8)", background: "rgba(255,255,255,0.1)",
-                      border: "0.5px solid rgba(255,255,255,0.2)",
-                      padding: "3px 10px", borderRadius: 50, fontFamily: "'Georgia', serif",
+                      color: "#d4af6a", background: "rgba(212,175,55,0.1)",
+                      border: "0.5px solid rgba(212,175,55,0.3)",
+                      padding: "4px 12px", borderRadius: 50, fontFamily: "'Georgia', serif",
                     }}>Featured</span>
                   )}
                 </div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", fontFamily: "'Georgia', serif" }}>
-                  {project.subtitle} · {project.year}
-                </div>
+                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.3)", fontFamily: "'Georgia', serif" }}>{project.subtitle} · {project.year}</div>
               </div>
 
               {/* Repo links */}
-              <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: 16 }}>
+              <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: 18 }}>
                 {project.links.map(({ label, href }) => (
                   <a key={label} href={href} target="_blank" rel="noreferrer" style={{
-                    fontSize: 11, letterSpacing: 0.5,
-                    color: "rgba(255,255,255,0.5)", textDecoration: "none",
-                    fontFamily: "'Georgia', serif", padding: "5px 12px",
-                    background: "rgba(255,255,255,0.06)",
-                    border: "0.5px solid rgba(255,255,255,0.12)",
-                    borderRadius: 50, display: "inline-block",
-                    transition: "background 0.2s, color 0.2s",
+                    fontSize: 12, letterSpacing: 0.5,
+                    color: "rgba(255,255,255,0.55)", textDecoration: "none",
+                    fontFamily: "'Georgia', serif", padding: "5px 14px",
+                    background: "rgba(255,255,255,0.06)", border: "0.5px solid rgba(255,255,255,0.12)",
+                    borderRadius: 50, display: "inline-block", transition: "background 0.2s, color 0.2s",
                   }}
-                    onMouseEnter={(e) => { e.target.style.color = "#fff"; e.target.style.background = "rgba(255,255,255,0.13)"; }}
-                    onMouseLeave={(e) => { e.target.style.color = "rgba(255,255,255,0.5)"; e.target.style.background = "rgba(255,255,255,0.06)"; }}
-                  >
-                    {label} ↗
-                  </a>
+                    onMouseEnter={(e) => { e.target.style.color = "#d4af6a"; e.target.style.borderColor = "rgba(212,175,55,0.4)"; e.target.style.background = "rgba(212,175,55,0.08)"; }}
+                    onMouseLeave={(e) => { e.target.style.color = "rgba(255,255,255,0.55)"; e.target.style.borderColor = "rgba(255,255,255,0.12)"; e.target.style.background = "rgba(255,255,255,0.06)"; }}
+                  >{label} ↗</a>
                 ))}
               </div>
 
-              {/* Description */}
-              <p style={{
-                fontSize: 14, color: "rgba(255,255,255,0.5)",
-                lineHeight: 1.85, fontFamily: "'Georgia', serif", margin: "0 0 20px",
-              }}>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.58)", lineHeight: 1.9, fontFamily: "'Georgia', serif", margin: "0 0 22px" }}>
                 {project.description}
               </p>
 
-              {/* Metrics */}
+              {/* Metrics — gold numbers */}
               {project.metrics.length > 0 && (
-                <div style={{ display: "flex", gap: 8, marginBottom: 18, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 9, marginBottom: 20, flexWrap: "wrap" }}>
                   {project.metrics.map(({ label, value }) => (
                     <div key={label} style={{
-                      padding: "10px 16px",
-                      background: "rgba(255,255,255,0.06)",
-                      border: "0.5px solid rgba(255,255,255,0.12)",
-                      borderRadius: 12,
+                      padding: "12px 18px",
+                      background: "rgba(212,175,55,0.06)",
+                      border: "0.5px solid rgba(212,175,55,0.2)",
+                      borderRadius: 13,
                     }}>
-                      <div style={{ fontFamily: "'Georgia', serif", fontSize: 18, color: "#fff", letterSpacing: -0.5 }}>{value}</div>
-                      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: 1.5, textTransform: "uppercase", fontFamily: "'Georgia', serif", marginTop: 2 }}>{label}</div>
+                      <div style={{ fontFamily: "'Georgia', serif", fontSize: 20, color: "#d4af6a", letterSpacing: -0.5 }}>{value}</div>
+                      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)", letterSpacing: 1.5, textTransform: "uppercase", fontFamily: "'Georgia', serif", marginTop: 3 }}>{label}</div>
                     </div>
                   ))}
                 </div>
               )}
 
-              {/* Tags */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
                 {project.tags.map((t) => (
                   <span key={t} style={{
                     fontSize: 11, padding: "5px 13px",
-                    background: "rgba(255,255,255,0.05)",
-                    border: "0.5px solid rgba(255,255,255,0.1)",
-                    color: "rgba(255,255,255,0.4)",
-                    letterSpacing: 1, textTransform: "uppercase",
+                    background: "rgba(255,255,255,0.05)", border: "0.5px solid rgba(255,255,255,0.09)",
+                    color: "rgba(255,255,255,0.42)", letterSpacing: 1, textTransform: "uppercase",
                     fontFamily: "'Georgia', serif", borderRadius: 50,
                   }}>{t}</span>
                 ))}

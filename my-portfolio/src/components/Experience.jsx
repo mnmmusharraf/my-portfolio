@@ -36,20 +36,15 @@ const glass = {
 
 export default function Experience() {
   return (
-    <section id="experience" style={{
-      background: "#000",
-      padding: "100px 24px",
-      borderBottom: "0.5px solid rgba(255,255,255,0.08)",
-    }}>
+    <section id="experience" style={{ background: "#000", padding: "110px 24px", borderBottom: "0.5px solid rgba(255,255,255,0.08)" }}>
       <style>{`
         .exp-wrap { max-width: 1100px; margin: 0 auto; }
-        @media (min-width: 768px) { .exp-wrap { padding: 0 32px; } }
+        @media (min-width: 768px) { .exp-wrap { padding: 0 40px; } }
       `}</style>
 
       <div className="exp-wrap">
-        {/* Section label */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 64 }}>
-          <span style={{ fontSize: 10, letterSpacing: 5, textTransform: "uppercase", color: "rgba(255,255,255,0.25)", fontFamily: "'Georgia', serif", whiteSpace: "nowrap" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 24, marginBottom: 72 }}>
+          <span style={{ fontSize: 11, letterSpacing: 5, textTransform: "uppercase", color: "#d4af6a", fontFamily: "'Georgia', serif", whiteSpace: "nowrap" }}>
             03 — Experience
           </span>
           <div style={{ flex: 1, height: "0.5px", background: "rgba(255,255,255,0.08)" }} />
@@ -57,76 +52,50 @@ export default function Experience() {
 
         <h2 style={{
           fontFamily: "'Georgia', 'Times New Roman', serif",
-          fontSize: "clamp(30px, 4vw, 48px)",
-          fontWeight: 400, color: "#fff", letterSpacing: -1.5, margin: "0 0 48px",
+          fontSize: "clamp(32px, 4vw, 52px)",
+          fontWeight: 400, color: "#fff", letterSpacing: -1.5, margin: "0 0 52px",
         }}>
           Work &amp; Contributions
         </h2>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {experience.map((exp, i) => (
-            <div
-              key={i}
-              style={{
-                ...glass, borderRadius: 22, padding: "32px 28px",
-                transition: "background 0.2s, border-color 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-              }}
+            <div key={i} style={{
+              ...glass, borderRadius: 22, padding: "34px 30px",
+              transition: "background 0.2s, border-color 0.2s",
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.borderColor = "rgba(212,175,55,0.2)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
             >
-              {/* Header row */}
-              <div style={{
-                display: "flex", justifyContent: "space-between",
-                flexWrap: "wrap", gap: 12, marginBottom: 24,
-              }}>
+              <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 26 }}>
                 <div>
-                  <h3 style={{
-                    fontFamily: "'Georgia', serif", fontSize: 20,
-                    fontWeight: 400, color: "#fff", margin: "0 0 5px", letterSpacing: -0.3,
-                  }}>{exp.role}</h3>
-                  <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", fontFamily: "'Georgia', serif" }}>
-                    {exp.company} · {exp.period}
-                  </div>
+                  <h3 style={{ fontFamily: "'Georgia', serif", fontSize: 21, fontWeight: 400, color: "#fff", margin: "0 0 6px", letterSpacing: -0.3 }}>{exp.role}</h3>
+                  <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", fontFamily: "'Georgia', serif" }}>{exp.company} · {exp.period}</div>
                 </div>
+                {/* Gold type badge */}
                 <span style={{
                   fontSize: 10, letterSpacing: 2, textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.6)", background: "rgba(255,255,255,0.07)",
-                  border: "0.5px solid rgba(255,255,255,0.14)", borderRadius: 50,
-                  padding: "5px 14px", fontFamily: "'Georgia', serif", alignSelf: "flex-start",
+                  color: "#d4af6a", background: "rgba(212,175,55,0.09)",
+                  border: "0.5px solid rgba(212,175,55,0.25)", borderRadius: 50,
+                  padding: "6px 16px", fontFamily: "'Georgia', serif", alignSelf: "flex-start",
                 }}>{exp.type}</span>
               </div>
 
-              {/* Bullet points */}
-              <div style={{ marginBottom: 22 }}>
+              <div style={{ marginBottom: 24 }}>
                 {exp.bullets.map((b) => (
-                  <div key={b} style={{ display: "flex", gap: 14, marginBottom: 12, alignItems: "flex-start" }}>
-                    <span style={{
-                      color: "rgba(255,255,255,0.18)", fontSize: 16,
-                      lineHeight: "1.7", flexShrink: 0, fontFamily: "'Georgia', serif",
-                    }}>—</span>
-                    <span style={{
-                      fontSize: 14, color: "rgba(255,255,255,0.55)",
-                      fontFamily: "'Georgia', serif", lineHeight: 1.7,
-                    }}>{b}</span>
+                  <div key={b} style={{ display: "flex", gap: 14, marginBottom: 13, alignItems: "flex-start" }}>
+                    <span style={{ color: "rgba(212,175,55,0.5)", fontSize: 14, lineHeight: "1.75", flexShrink: 0, fontFamily: "'Georgia', serif" }}>—</span>
+                    <span style={{ fontSize: 15, color: "rgba(255,255,255,0.62)", fontFamily: "'Georgia', serif", lineHeight: 1.75 }}>{b}</span>
                   </div>
                 ))}
               </div>
 
-              {/* Tags */}
               <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
                 {exp.tags.map(t => (
                   <span key={t} style={{
-                    padding: "5px 13px", fontSize: 11,
-                    background: "rgba(255,255,255,0.05)",
-                    border: "0.5px solid rgba(255,255,255,0.1)",
-                    color: "rgba(255,255,255,0.4)",
-                    letterSpacing: 1, textTransform: "uppercase",
+                    padding: "5px 14px", fontSize: 11,
+                    background: "rgba(255,255,255,0.05)", border: "0.5px solid rgba(255,255,255,0.1)",
+                    color: "rgba(255,255,255,0.45)", letterSpacing: 1, textTransform: "uppercase",
                     fontFamily: "'Georgia', serif", borderRadius: 50,
                   }}>{t}</span>
                 ))}
@@ -135,28 +104,32 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* "Looking for internship" CTA strip */}
+        {/* CTA strip */}
         <div style={{
-          marginTop: 16,
-          ...glass, borderRadius: 20, padding: "22px 28px",
+          marginTop: 16, ...glass, borderRadius: 20, padding: "24px 30px",
           display: "flex", justifyContent: "space-between", alignItems: "center",
           flexWrap: "wrap", gap: 16,
+          border: "0.5px solid rgba(212,175,55,0.15)",
         }}>
           <div>
-            <div style={{ fontSize: 14, color: "#fff", fontFamily: "'Georgia', serif", marginBottom: 4 }}>
+            <div style={{ fontSize: 16, color: "#fff", fontFamily: "'Georgia', serif", marginBottom: 5 }}>
               Seeking internship or junior developer opportunities
             </div>
-            <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", fontFamily: "'Georgia', serif" }}>
+            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.38)", fontFamily: "'Georgia', serif" }}>
               Full-time · Internship · Remote · Relocatable
             </div>
           </div>
           <a href="#contact" style={{
-            padding: "11px 24px",
-            background: "rgba(255,255,255,0.9)", color: "#000",
+            padding: "12px 26px",
+            background: "rgba(212,175,55,0.15)", color: "#d4af6a",
+            border: "0.5px solid rgba(212,175,55,0.35)",
             borderRadius: 12, textDecoration: "none",
-            fontSize: 12, letterSpacing: 0.5, fontFamily: "'Georgia', serif", fontWeight: 600,
-            flexShrink: 0,
-          }}>Get in Touch</a>
+            fontSize: 13, letterSpacing: 0.5, fontFamily: "'Georgia', serif", fontWeight: 600,
+            flexShrink: 0, transition: "background 0.2s",
+          }}
+            onMouseEnter={(e) => e.currentTarget.style.background = "rgba(212,175,55,0.25)"}
+            onMouseLeave={(e) => e.currentTarget.style.background = "rgba(212,175,55,0.15)"}
+          >Get in Touch →</a>
         </div>
       </div>
     </section>
