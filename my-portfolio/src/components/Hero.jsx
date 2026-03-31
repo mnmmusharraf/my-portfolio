@@ -4,12 +4,45 @@ export default function Hero() {
   return (
     <section id="hero" style={{ minHeight: "100vh", position: "relative", overflow: "hidden", background: "#000" }}>
       <style>{`
-        .hero-grid { display: grid; grid-template-columns: 1fr; min-height: 100vh; }
+        /* Mobile: photo as full background with overlay */
+        .hero-bg-mobile {
+          display: block;
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .hero-bg-mobile img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+        }
+        .hero-bg-mobile::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.72) 0%,
+            rgba(0,0,0,0.55) 50%,
+            rgba(0,0,0,0.85) 100%
+          );
+        }
+
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          min-height: 100vh;
+          position: relative;
+          z-index: 1;
+        }
         .hero-left {
           display: flex; flex-direction: column; justify-content: center;
           padding: 120px 28px 80px; position: relative; z-index: 2;
         }
-        .hero-photo { display: none; position: relative; overflow: hidden; }
+        /* Desktop: hide mobile bg, show right-column photo */
+        .hero-photo-right { display: none; position: relative; overflow: hidden; }
         .hero-loc {
           position: absolute; bottom: 40px; left: 28px;
           padding: 7px 18px;
@@ -18,14 +51,23 @@ export default function Hero() {
           border: 0.5px solid rgba(255,255,255,0.12); border-radius: 50px;
           font-size: 11px; letter-spacing: 2.5px; color: rgba(255,255,255,0.4);
           text-transform: uppercase; font-family: 'Georgia', serif;
+          z-index: 3;
         }
+
         @media (min-width: 768px) {
+          /* Hide mobile background, show right column photo */
+          .hero-bg-mobile { display: none; }
           .hero-grid { grid-template-columns: 1fr 1fr; }
           .hero-left { padding: 120px 56px 80px; }
-          .hero-photo { display: block; }
+          .hero-photo-right { display: block; }
           .hero-loc { left: 56px; }
         }
       `}</style>
+
+      {/* Mobile-only: full bleed background photo */}
+      <div className="hero-bg-mobile">
+        <img src={heroPhoto} alt="" aria-hidden="true" />
+      </div>
 
       <div className="hero-grid">
         <div className="hero-left">
@@ -94,7 +136,7 @@ export default function Hero() {
             >Contact →</a>
           </div>
 
-          {/* Stats with gold accent on numbers */}
+          {/* Stats */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 52 }}>
             {[
               { n: "4+",      l: "Projects shipped" },
@@ -121,8 +163,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Photo */}
-        <div className="hero-photo">
+        {/* Desktop-only right column photo */}
+        <div className="hero-photo-right">
           <img src={heroPhoto} alt="Musharraf" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #000 0%, rgba(0,0,0,0.08) 22%, transparent 48%)", pointerEvents: "none" }} />
           <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "25%", background: "linear-gradient(to top, #000 0%, transparent 100%)", pointerEvents: "none" }} />
@@ -130,7 +172,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-loc">Sri Lanka · Available Worldwide</div>
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "0.5px", background: "rgba(255,255,255,0.08)" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "0.5px", background: "rgba(255,255,255,0.08)", zIndex: 4 }} />
     </section>
   );
 }
